@@ -56,7 +56,7 @@ const loadSearchResult = (data) => {
       if (author === undefined)
         author = 'unknown';
       if (book.cover_i === undefined) {
-        url = 'images/bg.jpg';
+        url = 'images/no_cover.jpg';
         if (firstPublishYear === undefined)
           firstPublishYear = 'unknown';
         if (publishDate === undefined)
@@ -71,8 +71,8 @@ const loadSearchResult = (data) => {
           <h5 class="card-title">Title : <b>${title}</b></h5>
           <h5 class="card-title">Author : <b>${author}</b></h5>
           <h6 class="card-title">First Publish Year : <b>${firstPublishYear}</b></h6>
-          <h6 class="card-title">First Publish Date :  <b>${publishDate}</b></h6>
-          <h6 class="card-title">Publisher : <b>${book.publisher}</b></h6>
+          <h6 class="card-title">Publish Dates :  <b>${publishDate}</b></h6>
+          <h6 class="card-title">Publisher : <b> <i>${publisher}</b><i></h6>
         </div>
       </div>
         `;

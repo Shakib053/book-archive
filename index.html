@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Archive</title>
+
+  <!-- bootstrap css link -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+
+  <!-- external css link -->
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+<style>
+
+</style>
+
+<body>
+
+  <h1 class="text-capitalize text-center mt-5">welcome to <span id="book-store">book archive</span> </h1>
+
+  <div class="container">
+
+
+    <!-- search box  -->
+    <div class="col-md-6 m-auto py-5">
+      <div class="input-group mb-3">
+
+        <input id="input-field" type="text" class="form-control" placeholder="Enter a book name to search ...">
+
+        <div class="mx-2 input-group-append">
+          <button onclick="searchBook()" id="search-button" type="button" class="btn btn-success">Search</button>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- show search result -->
+    <div id="total-result"> 
+
+    </div>
+
+    <div id="search-container" class="card-group row row-cols-1 row-cols-md-3 g-4">
+
+    </div>
+
+
+
+
+
+  </div>
+
+
+
+  <!-- bootstrap js link -->
+  <script src="js/bootstrap.bundle.min.js"></script>
+
+  <!-- external js link -->
+  <script src="js/index.js"></script>
+</body>
+
+</html>

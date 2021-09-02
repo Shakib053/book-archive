@@ -1,4 +1,6 @@
 
+
+//search for the books by name
 const searchBook = () => {
   const seachField = document.getElementById('input-field');
   const searchText = seachField.value;
@@ -13,12 +15,15 @@ const searchBook = () => {
     .then(data => loadSearchResult(data));
 };
 
+
+//load the search result and show it into the container
 const loadSearchResult = (data) => {
   const searchArea = document.getElementById('search-container');
   const TotalSearchNumber = document.getElementById('total-result');
-  // TotalSearchNumber.textContent = '';
   const totalBooks = data.numFound;
   const books = data.docs;
+
+  //if no such book is found then show error message
   let div = document.createElement('div');
   if (totalBooks === 0) {
     div.innerHTML = `
@@ -26,6 +31,7 @@ const loadSearchResult = (data) => {
     `;
     TotalSearchNumber.appendChild(div);
   }
+  //if books are found then show
   else {
 
     div.innerHTML = ` 
@@ -42,6 +48,9 @@ const loadSearchResult = (data) => {
       let author = book.author_name;
       let firstPublishYear = book.first_publish_year;
       let publishDate = book.publish_date;
+      let publisher = book.publisher;
+
+      //if result in undefined show unknown message
       if (title === undefined)
         title = 'unknown';
       if (author === undefined)
@@ -52,32 +61,24 @@ const loadSearchResult = (data) => {
           firstPublishYear = 'unknown';
         if (publishDate === undefined)
           publishDate = 'unknown';
+        if (publisher === undefined)
+          publisher = 'unknown';
       }
       div.innerHTML = `
         <div class="card">
         <img src="${url}" class="card-img-top" alt="...">
-        <div class="card-body">
+        <div class="card-body pt-4">
           <h5 class="card-title">Title : <b>${title}</b></h5>
           <h5 class="card-title">Author : <b>${author}</b></h5>
           <h6 class="card-title">First Publish Year : <b>${firstPublishYear}</b></h6>
           <h6 class="card-title">First Publish Date :  <b>${publishDate}</b></h6>
           <h6 class="card-title">Publisher : <b>${book.publisher}</b></h6>
         </div>
-        <div class="card-footer">
-          <small class="text-muted">Last updated 3 mins ago</small>
-        </div>
       </div>
         `;
       searchArea.appendChild(div);
     });
   }
-
-
-
-
-
 }
 
 
-// const books = { age: 12, sa: 'asf' };
-// console.log(book.as);
